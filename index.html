@@ -16,7 +16,7 @@ Customer Service tool for generating consistent price offerings to client reques
         <div><h1>Customer Support Pricing Guidelines</h1></div>
 
         <!--Input bar-->
-        <div class="row filters">
+        <div class="row jumbotron filters">
 
             <div class="col-xs-2">
                 <label>Country</label>
@@ -38,7 +38,7 @@ Customer Service tool for generating consistent price offerings to client reques
 
             <div class="col-xs-2">
                 <label>Order quantity</label>
-                <input type="number" class="form-control" placeholder="ex. 15" id="quantity">
+                <input type="number" class="form-control" placeholder="ex. 15" id="quantity" min="1" step="1" pattern="[0-100]" >
             </div>
 
             <div class="col-xs-2">
