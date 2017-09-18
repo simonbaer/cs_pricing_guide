@@ -45,11 +45,11 @@ function buildHeadlineTable(array) {
 
   table = $('#headline').DataTable({
       "scrollY": "180px",
-      "scrollCollapse": true,
+      "scrollCollapse": false,
       "paging": false,
       "bFilter": true,
       "bInfo": true,
-      "ordering": false
+      "ordering": true
   });
   table.columns.adjust().draw();
 }
