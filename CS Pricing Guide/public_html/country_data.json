@@ -4,14 +4,14 @@
         "debit_fee": "0.0095",
         "credit_fee": "0.0250",
         "device_price": "79",
-        "currency": "€"
+        "currency": "EUR"
     },
     {
         "name": "Belgium",
         "debit_fee": "0.0195",
         "credit_fee": "0.0195",
         "device_price": "79",
-        "currency": "€"
+        "currency": "EUR"
     },
     {
         "name": "Switzerland",
@@ -25,69 +25,105 @@
         "debit_fee": "0.0095",
         "credit_fee": "0.0275",
         "device_price": "79",
-        "currency": "€"
+        "currency": "EUR"
     },
     {
         "name": "Spain",
         "debit_fee": "0.0150",
         "credit_fee": "0.0150",
         "device_price": "79",
-        "currency": "€"
+        "currency": "EUR"
     },
     {
         "name": "France",
         "debit_fee": "0.0095",
         "credit_fee": "0.0275",
         "device_price": "79",
-        "currency": "€"
+        "currency": "EUR"
     },
     {
         "name": "Italy",
         "debit_fee": "0.0195",
         "credit_fee": "0.0195",
         "device_price": "79",
-        "currency": "€"
+        "currency": "EUR"
     },
     {
         "name": "Netherlands",
         "debit_fee": "0.0275",
         "credit_fee": "0.0275",
         "device_price": "79",
-        "currency": "€"
+        "currency": "EUR"
     },
     {
         "name": "Poland",
         "debit_fee": "0.0149",
         "credit_fee": "0.0149",
         "device_price": "299",
-        "currency": "zł"
+        "currency": "PLN"
     },
     {
         "name": "Portugal",
         "debit_fee": "0.0195",
         "credit_fee": "0.0195",
         "device_price": "79",
-        "currency": "€"
+        "currency": "EUR"
     },
     {
         "name": "Sweden",
         "debit_fee": "0.0190",
         "credit_fee": "0.0190",
         "device_price": "799",
-        "currency": "kr"
+        "currency": "SEK"
     },
     {
         "name": "United Kingdom",
         "debit_fee": "0.0195",
         "credit_fee": "0.0195",
         "device_price": "59",
-        "currency": "£"
+        "currency": "GBP"
     },
     {
         "name": "United States",
         "debit_fee": "0.0275",
         "credit_fee": "0.0275",
         "device_price": "69",
-        "currency": "$"
+        "currency": "USD"
+    },
+    {
+        "name": "Finland",
+        "debit_fee": "0.0095",
+        "credit_fee": "0.0275",
+        "device_price": "79",
+        "currency": "EUR"
+    },
+    {
+        "name": "Norway",
+        "debit_fee": "0.0095",
+        "credit_fee": "0.0275",
+        "device_price": "799",
+        "currency": "NOK"
+    },
+    {
+        "name": "Lithuania",
+        "debit_fee": "0.0275",
+        "credit_fee": "0.0275",
+        "device_price": "79",
+        "currency": "EUR"
+    },
+    {
+        "name": "Slovenia",
+        "debit_fee": "0.0275",
+        "credit_fee": "0.0275",
+        "device_price": "79",
+        "currency": "EUR"
+    }
+    ,
+    {
+        "name": "Greece",
+        "debit_fee": "0.0275",
+        "credit_fee": "0.0275",
+        "device_price": "79",
+        "currency": "EUR"
     }
 ]

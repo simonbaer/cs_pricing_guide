@@ -21,8 +21,8 @@ function buildHeadlineTable(array) {
     }
 
     table = $('#headline').DataTable({
-        //"scrollY": "180px",
-        "scrollCollapse": false,
+        "scrollY": true,
+        "scrollCollapse": true,
         "paging": false,
         "bFilter": true,
         "bInfo": false,
@@ -32,6 +32,7 @@ function buildHeadlineTable(array) {
 }
 
 function buildDropdownMenu(array) {
+    array.sort(compare);
     for (i = 0; i < array.length; i++)
         $("#country_dropdown").append("<option>" + array[i].name + "</option>");
 }
@@ -42,6 +43,14 @@ function percent(decimal) {
     return decimal.toFixed(2);
 }
 
+//Array sorting
+function compare(a, b) {
+    if (a.name < b.name)
+        return -1;
+    else
+        return 1;
+}
+
 //Button attachments
 function campaign_status() {
     if ($("#campaign_check").is(":checked"))
@@ -50,8 +59,40 @@ function campaign_status() {
         $("#campaign_status").attr("disabled", true);
 }
 
-//not working
-$("#pricing_button").click(function (array) {
+//evaluate input on-click
+$("#pricing_button").click(function () {
     $("#pricing_button").blur();
-    evaluatePricing(array);
+
+    country = $("#country_dropdown option:selected").text();
+    merch_type = $("#merchant_type option:selected").text();
+    merch_TPV = $("#tpv").val();
+    quantity = $("#quantity").val();
+
+    for (var i = 0; i < countries.length; i++) {
+        if (country === countries[i].name) {
+            debit = countries[i].debit_fee;
+            credit = countries[i].credit_fee;
+        }
+    }
+
+    //fee discount table
+    if (merch_TPV < 2499) {
+        alert("Merchant is not eligable for a fee discount");
+    } else if (merch_TPV > 2500 && merch_TPV < 4999) {
+        debit = debit*0.90;
+        credit = credit*0.80;
+    } else if (merch_TPV > 5000 && merch_TPV < 9999) {
+        debit = debit*0.80;
+        credit = credit*0.70;
+    } else if (merch_TPV > 10000 && merch_TPV < 19999) {
+        debit = debit*0.70;
+        credit = credit*0.60;
+    } else if (merch_TPV > 20000 && merch_TPV < 4000) {
+        debit = debit*0.70;
+        credit = credit*0.50;
+    } else {
+        alert("Please contact Business Development");
+    }
+    console.log(percent(debit) + " " + percent(credit));
+    
 });
