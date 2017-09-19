@@ -2,18 +2,14 @@
  * Customer Service tool for generating consistent price offerings to client requests
  */
 
-//Parse JSON to array of countries
 var countries = [];
+
+//Parse JSON to array of countries
 $.getJSON("country_data.json", function (data) {
     countries = data;
+    buildDropdownMenu(countries);
+    buildHeadlineTable(countries);
 });
-
-
-//countries.sort(compare);
-
-//function calls in order
-buildDropdownMenu(countries);
-buildHeadlineTable(countries);
 
 function buildHeadlineTable(array) {
     for (i = 0; i < array.length; i++) {
@@ -25,11 +21,11 @@ function buildHeadlineTable(array) {
     }
 
     table = $('#headline').DataTable({
-        "scrollY": "180px",
+        //"scrollY": "180px",
         "scrollCollapse": false,
         "paging": false,
         "bFilter": true,
-        "bInfo": true,
+        "bInfo": false,
         "ordering": true
     });
     table.columns.adjust().draw();
@@ -44,13 +40,6 @@ function buildDropdownMenu(array) {
 function percent(decimal) {
     decimal = decimal * 100;
     return decimal.toFixed(2);
-}
-
-function compare(a, b) {
-    if (a.name < b.name)
-        return -1;
-    else
-        return 1;
 }
 
 //Button attachments

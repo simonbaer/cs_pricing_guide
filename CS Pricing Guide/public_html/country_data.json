@@ -3,91 +3,91 @@
         "name": "Austria",
         "debit_fee": "0.0095",
         "credit_fee": "0.0250",
-        "reader_price": "79",
+        "device_price": "79",
         "currency": "€"
     },
     {
         "name": "Belgium",
         "debit_fee": "0.0195",
         "credit_fee": "0.0195",
-        "reader_price": "79",
+        "device_price": "79",
         "currency": "€"
     },
     {
         "name": "Switzerland",
         "debit_fee": "0.0150",
         "credit_fee": "0.0250",
-        "reader_price": "99",
+        "device_price": "99",
         "currency": "CHF"
     },
     {
         "name": "Germany",
         "debit_fee": "0.0095",
         "credit_fee": "0.0275",
-        "reader_price": "79",
+        "device_price": "79",
         "currency": "€"
     },
     {
         "name": "Spain",
         "debit_fee": "0.0150",
         "credit_fee": "0.0150",
-        "reader_price": "79",
+        "device_price": "79",
         "currency": "€"
     },
     {
         "name": "France",
         "debit_fee": "0.0095",
         "credit_fee": "0.0275",
-        "reader_price": "79",
+        "device_price": "79",
         "currency": "€"
     },
     {
         "name": "Italy",
         "debit_fee": "0.0195",
         "credit_fee": "0.0195",
-        "reader_price": "79",
+        "device_price": "79",
         "currency": "€"
     },
     {
         "name": "Netherlands",
         "debit_fee": "0.0275",
         "credit_fee": "0.0275",
-        "reader_price": "79",
+        "device_price": "79",
         "currency": "€"
     },
     {
         "name": "Poland",
         "debit_fee": "0.0149",
         "credit_fee": "0.0149",
-        "reader_price": "299",
+        "device_price": "299",
         "currency": "zł"
     },
     {
         "name": "Portugal",
         "debit_fee": "0.0195",
         "credit_fee": "0.0195",
-        "reader_price": "79",
+        "device_price": "79",
         "currency": "€"
     },
     {
         "name": "Sweden",
         "debit_fee": "0.0190",
         "credit_fee": "0.0190",
-        "reader_price": "799",
+        "device_price": "799",
         "currency": "kr"
     },
     {
         "name": "United Kingdom",
         "debit_fee": "0.0195",
         "credit_fee": "0.0195",
-        "reader_price": "59",
+        "device_price": "59",
         "currency": "£"
     },
     {
         "name": "United States",
         "debit_fee": "0.0275",
         "credit_fee": "0.0275",
-        "reader_price": "69",
+        "device_price": "69",
         "currency": "$"
     }
 ]
