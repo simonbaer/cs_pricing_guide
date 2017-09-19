@@ -78,21 +78,22 @@ $("#pricing_button").click(function () {
     //fee discount table
     if (merch_TPV < 2499) {
         alert("Merchant is not eligable for a fee discount");
-    } else if (merch_TPV > 2500 && merch_TPV < 4999) {
-        debit = debit*0.90;
-        credit = credit*0.80;
-    } else if (merch_TPV > 5000 && merch_TPV < 9999) {
-        debit = debit*0.80;
-        credit = credit*0.70;
-    } else if (merch_TPV > 10000 && merch_TPV < 19999) {
-        debit = debit*0.70;
-        credit = credit*0.60;
-    } else if (merch_TPV > 20000 && merch_TPV < 4000) {
-        debit = debit*0.70;
-        credit = credit*0.50;
+    } else if (merch_TPV >= 2500 && merch_TPV < 4999) {
+        debit *= 0.90;
+        credit *= 0.80;
+    } else if (merch_TPV >= 5000 && merch_TPV < 9999) {
+        debit *= 0.80;
+        credit *= 0.70;
+    } else if (merch_TPV >= 10000 && merch_TPV < 19999) {
+        debit *= 0.70;
+        credit *= 0.60;
+    } else if (merch_TPV >= 20000 && merch_TPV < 40000) {
+        debit *= 0.70;
+        credit *= 0.50;
     } else {
         alert("Please contact Business Development");
     }
-    console.log(percent(debit) + " " + percent(credit));
     
+    console.log(percent(debit) + " " + percent(credit));
+    //$("#output").append("test");
 });
