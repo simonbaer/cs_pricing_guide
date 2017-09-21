@@ -33,7 +33,7 @@ Customer Service tool for generating consistent price offerings to client reques
 
             <div class="col-xs-2">
                 <label>Merchant TPV30 (€)</label>
-                <input type="number" class="form-control" placeholder="ex. 3000" id="tpv">
+                <input type="number" max="50000" min="2000" step="100" class="form-control" placeholder="ex. 3000" id="tpv">
             </div>
 
             <div class="col-xs-2">
@@ -54,9 +54,13 @@ Customer Service tool for generating consistent price offerings to client reques
             <div>
                 <label>&nbsp;</label><br>
                 <button type="submit" class="btn btn-primary" id="pricing_button">Submit</button>
+                <button type="reset" class="btn btn-secondary" id="clear">Clear</button>
             </div>
+
             <hr class="my-4">
-            <h2>Output</h2>
+            <div id="output">
+                <h2>Output</h2>
+            </div>
         </div>
 
         <!--Data Table-->

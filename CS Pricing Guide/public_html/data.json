@@ -4,119 +4,136 @@
         "debit_fee": "0.0095",
         "credit_fee": "0.0250",
         "device_price": "79",
-        "currency": "EUR"
+        "currency": "EUR",
+        "lowest_credit": "0.0100"
     },
     {
         "name": "Belgium",
         "debit_fee": "0.0195",
         "credit_fee": "0.0195",
         "device_price": "79",
-        "currency": "EUR"
+        "currency": "EUR",
+        "lowest_credit": "0.0100"
     },
     {
         "name": "Switzerland",
         "debit_fee": "0.0150",
         "credit_fee": "0.0250",
         "device_price": "99",
-        "currency": "CHF"
+        "currency": "CHF",
+        "lowest_credit": "0.0100"
     },
     {
         "name": "Germany",
         "debit_fee": "0.0095",
         "credit_fee": "0.0275",
         "device_price": "79",
-        "currency": "EUR"
+        "currency": "EUR",
+        "lowest_credit": "0.0100"
     },
     {
         "name": "Spain",
         "debit_fee": "0.0150",
         "credit_fee": "0.0150",
         "device_price": "79",
-        "currency": "EUR"
+        "currency": "EUR",
+        "lowest_credit": "0.0100"
     },
     {
         "name": "France",
         "debit_fee": "0.0095",
         "credit_fee": "0.0275",
         "device_price": "79",
-        "currency": "EUR"
+        "currency": "EUR",
+        "lowest_credit": "0.0120"
     },
     {
         "name": "Italy",
         "debit_fee": "0.0195",
         "credit_fee": "0.0195",
         "device_price": "79",
-        "currency": "EUR"
+        "currency": "EUR",
+        "lowest_credit": "0.0150"
     },
     {
         "name": "Netherlands",
         "debit_fee": "0.0275",
         "credit_fee": "0.0275",
         "device_price": "79",
-        "currency": "EUR"
+        "currency": "EUR",
+        "lowest_credit": "0.0130"
     },
     {
         "name": "Poland",
         "debit_fee": "0.0149",
         "credit_fee": "0.0149",
         "device_price": "299",
-        "currency": "PLN"
+        "currency": "PLN",
+        "lowest_credit": "0.0120"
     },
     {
         "name": "Portugal",
         "debit_fee": "0.0195",
         "credit_fee": "0.0195",
         "device_price": "79",
-        "currency": "EUR"
+        "currency": "EUR",
+        "lowest_credit": "0.0120"
     },
     {
         "name": "Sweden",
         "debit_fee": "0.0190",
         "credit_fee": "0.0190",
         "device_price": "799",
-        "currency": "SEK"
+        "currency": "SEK",
+        "lowest_credit": "0.0100"
     },
     {
         "name": "United Kingdom",
         "debit_fee": "0.0195",
         "credit_fee": "0.0195",
         "device_price": "59",
-        "currency": "GBP"
+        "currency": "GBP",
+        "lowest_credit": "0.0100"
     },
     {
         "name": "United States",
         "debit_fee": "0.0275",
         "credit_fee": "0.0275",
         "device_price": "69",
-        "currency": "USD"
+        "currency": "USD",
+        "lowest_credit": "0.0175"
     },
     {
         "name": "Finland",
         "debit_fee": "0.0095",
         "credit_fee": "0.0275",
         "device_price": "79",
-        "currency": "EUR"
+        "currency": "EUR",
+        "lowest_credit": "0.0100"
     },
     {
         "name": "Norway",
         "debit_fee": "0.0095",
         "credit_fee": "0.0275",
         "device_price": "799",
-        "currency": "NOK"
+        "currency": "NOK",
+        "lowest_credit": "0.0100"
     },
     {
         "name": "Lithuania",
         "debit_fee": "0.0275",
         "credit_fee": "0.0275",
         "device_price": "79",
-        "currency": "EUR"
+        "currency": "EUR",
+        "lowest_credit": "0.0100"
     },
     {
         "name": "Slovenia",
         "debit_fee": "0.0275",
         "credit_fee": "0.0275",
         "device_price": "79",
-        "currency": "EUR"
+        "currency": "EUR",
+        "lowest_credit": "0.0100"
     }
     ,
     {
@@ -124,6 +141,7 @@
         "debit_fee": "0.0275",
         "credit_fee": "0.0275",
         "device_price": "79",
-        "currency": "EUR"
+        "currency": "EUR",
+        "lowest_credit": "0.0100"
     }
 ]

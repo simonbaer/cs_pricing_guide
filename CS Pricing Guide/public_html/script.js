@@ -2,10 +2,12 @@
  * Customer Service tool for generating consistent price offerings to client requests
  */
 
+//global array variables
 var countries = [];
+var pricing = [];
 
 //Parse JSON to array of countries
-$.getJSON("country_data.json", function (data) {
+$.getJSON("data.json", function (data) {
     countries = data;
     buildDropdownMenu(countries);
     buildHeadlineTable(countries);
@@ -37,7 +39,80 @@ function buildDropdownMenu(array) {
         $("#country_dropdown").append("<option>" + array[i].name + "</option>");
 }
 
+//Button attachments
+function campaign_status() {
+    if ($("#campaign_check").is(":checked"))
+        $("#campaign_status").attr("disabled", false);
+    else
+        $("#campaign_status").attr("disabled", true);
+}
+
+
+//clear form
+$("#clear").click(function () {
+    $(".alert").alert("close");
+    $("#tpv").val("");
+    $("#quantity").val("");
+    $("#campaign_status").attr("disabled", true);
+    $("#campaign_check").attr("checked", false);
+});
+
+//evaluate input on-click
+$("#pricing_button").click(function () {
+    $("#pricing_button").blur();
+    $(".alert").alert("close");
+
+    var country = $("#country_dropdown option:selected").text();
+    var merch_type = $("#merchant_type option:selected").text();
+    var merch_TPV = parseInt($("#tpv").val());
+    var quantity = parseInt($("#quantity").val());
+    var debit_fee = 0;
+    var credit_fee = 0;
+    var lowest_credit_fee = 0;
+
+    for (var i = 0; i < countries.length; i++) {
+        if (country === countries[i].name) {
+            debit_fee = countries[i].debit_fee;
+            credit_fee = countries[i].credit_fee;
+            lowest_credit_fee = countries[i].lowest_credit_fee;
+        }
+    }
+
+    //load fee discount to array
+    $.getJSON("pricing.json", function (data) {
+        pricing = data;
+        var suggested_credit_fee = 0;
+        var suggested_debit_fee = 0;
+
+        for (var i = 0; i < pricing.length; i++) {
+            benchmark = parseInt(pricing[i]['tpv']);
+
+            if (merch_TPV < 2000) {
+                $("#output").append("<div class='alert alert-danger' role='alert'>TPV too low!</div>");
+                break;
+            } else if (benchmark >= merch_TPV) {
+                suggested_credit_fee = credit_fee * (pricing[i - 1]['fee'] / pricing[0]['fee']);
+
+                if (suggested_credit_fee < lowest_credit_fee)
+                    suggested_credit_fee = lowest_credit_fee;
+
+                $("#output").append("<div class='alert alert-success' role='alert'>" +
+                        "Credit fee: " + percent(suggested_credit_fee) + "% </div>");
+                $("#output").append("<div class='alert alert-success' role='alert'>" +
+                        "Debit fee: " + percent(suggested_debit_fee) +
+                        "% </div>");
+
+                break;
+            } else if (merch_TPV > 50000) {
+                $("#output").append("<div class='alert alert-danger' role='alert'>Please contact BizDev!</div>");
+                break;
+            }
+        }
+    });
+});
+
 //Helper methods
+//convert decimal to percentage
 function percent(decimal) {
     decimal = decimal * 100;
     return decimal.toFixed(2);
@@ -50,50 +125,3 @@ function compare(a, b) {
     else
         return 1;
 }
-
-//Button attachments
-function campaign_status() {
-    if ($("#campaign_check").is(":checked"))
-        $("#campaign_status").attr("disabled", false);
-    else
-        $("#campaign_status").attr("disabled", true);
-}
-
-//evaluate input on-click
-$("#pricing_button").click(function () {
-    $("#pricing_button").blur();
-
-    country = $("#country_dropdown option:selected").text();
-    merch_type = $("#merchant_type option:selected").text();
-    merch_TPV = $("#tpv").val();
-    quantity = $("#quantity").val();
-
-    for (var i = 0; i < countries.length; i++) {
-        if (country === countries[i].name) {
-            debit = countries[i].debit_fee;
-            credit = countries[i].credit_fee;
-        }
-    }
-
-    //fee discount table
-    if (merch_TPV < 2499) {
-        alert("Merchant is not eligable for a fee discount");
-    } else if (merch_TPV >= 2500 && merch_TPV < 4999) {
-        debit *= 0.90;
-        credit *= 0.80;
-    } else if (merch_TPV >= 5000 && merch_TPV < 9999) {
-        debit *= 0.80;
-        credit *= 0.70;
-    } else if (merch_TPV >= 10000 && merch_TPV < 19999) {
-        debit *= 0.70;
-        credit *= 0.60;
-    } else if (merch_TPV >= 20000 && merch_TPV < 40000) {
-        debit *= 0.70;
-        credit *= 0.50;
-    } else {
-        alert("Please contact Business Development");
-    }
-    
-    console.log(percent(debit) + " " + percent(credit));
-    //$("#output").append("test");
-});
