@@ -7,3 +7,9 @@ and open the template in the editor.
     Created on : Jun 25, 2017, 6:53:02 PM
     Author     : simonbaer
 */
+
+#data_table {
+    padding-top:20px;
+    padding-right:60px;
+    padding-left:60px;
+}

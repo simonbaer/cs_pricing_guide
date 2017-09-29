@@ -14,21 +14,33 @@ $.getJSON("data.json", function (data) {
 });
 
 function buildHeadlineTable(array) {
-    for (i = 0; i < array.length; i++) {
-        $("tbody").append("<tr><th scope='row'>" + array[i].name + "</th>" +
-                "<td>" + percent(array[i].debit_fee) + "%" + "</td>" +
-                "<td>" + percent(array[i].credit_fee) + "%" + "</td>" +
-                "<td>" + array[i].device_price + " " + array[i].currency + "</td>");
+    for (var i = 0; i < array.length; i++) {
+        $("#standard").append(
+                "<tr><th scope='row'>" +
+                array[i].name +
+                "</th>" +
+                "<td>" +
+                percent(array[i].debit_fee) +
+                "%</td>" +
+                "<td>" +
+                percent(array[i].credit_fee) +
+                "%</td>" +
+                "<td>" +
+                array[i].device_price +
+                " " +
+                array[i].currency +
+                "</td>"
+                );
         $("td").append("</tr>");
     }
 
-    table = $('#headline').DataTable({
-        "scrollY": true,
-        "scrollCollapse": true,
-        "paging": false,
-        "bFilter": true,
-        "bInfo": false,
-        "ordering": true
+    table = $("#headline").DataTable({
+        scrollY: true,
+        scrollCollapse: true,
+        paging: false,
+        bFilter: true,
+        bInfo: false,
+        ordering: true
     });
     table.columns.adjust().draw();
 }
@@ -47,7 +59,6 @@ function campaign_status() {
         $("#campaign_status").attr("disabled", true);
 }
 
-
 //clear form
 $("#clear").click(function () {
     $(".alert").alert("close");
@@ -55,6 +66,7 @@ $("#clear").click(function () {
     $("#quantity").val("");
     $("#campaign_status").attr("disabled", true);
     $("#campaign_check").attr("checked", false);
+    $("#result tr").remove();
 });
 
 //evaluate input on-click
@@ -65,10 +77,18 @@ $("#pricing_button").click(function () {
     var country = $("#country_dropdown option:selected").text();
     var merch_type = $("#merchant_type option:selected").text();
     var merch_TPV = parseInt($("#tpv").val());
-    var quantity = parseInt($("#quantity").val());
     var debit_fee = 0;
     var credit_fee = 0;
     var lowest_credit_fee = 0;
+    var nth_device_price = 0;
+    var quantity = 0;
+
+    if ($("#quantity").val() === "") {
+        quantity = 0;
+    } else {
+        quantity = parseInt($("#quantity").val());
+    }
+
 
     for (var i = 0; i < countries.length; i++) {
         if (country === countries[i].name) {
@@ -84,27 +104,42 @@ $("#pricing_button").click(function () {
         var suggested_credit_fee = 0;
         var suggested_debit_fee = 0;
 
+
         for (var i = 0; i < pricing.length; i++) {
-            benchmark = parseInt(pricing[i]['tpv']);
+            benchmark = parseInt(pricing[i]["tpv"]);
 
             if (merch_TPV < 2000) {
-                $("#output").append("<div class='alert alert-danger' role='alert'>TPV too low!</div>");
+                alert("TPV too low!");
                 break;
             } else if (benchmark >= merch_TPV) {
-                suggested_credit_fee = credit_fee * (pricing[i - 1]['fee'] / pricing[0]['fee']);
+                suggested_credit_fee =
+                        credit_fee * (pricing[i - 1]["fee"] / pricing[0]["fee"]);
 
-                if (suggested_credit_fee < lowest_credit_fee)
+                if (suggested_credit_fee < lowest_credit_fee) {
                     suggested_credit_fee = lowest_credit_fee;
+                }
 
-                $("#output").append("<div class='alert alert-success' role='alert'>" +
-                        "Credit fee: " + percent(suggested_credit_fee) + "% </div>");
-                $("#output").append("<div class='alert alert-success' role='alert'>" +
-                        "Debit fee: " + percent(suggested_debit_fee) +
-                        "% </div>");
-
+                $("#result").append(
+                        "<tr><th scope='row'>" +
+                        country +
+                        "</th>" +
+                        "<td>" +
+                        merch_type +
+                        "</td><td>" +
+                        merch_TPV +
+                        "</td><td>" +
+                        percent(debit_fee) +
+                        " %</td><td>" +
+                        percent(suggested_credit_fee) +
+                        " %</td><td>" +
+                        quantity +
+                        "</td><td>" +
+                        nth_device_price +
+                        "</td></tr>"
+                        );
                 break;
             } else if (merch_TPV > 50000) {
-                $("#output").append("<div class='alert alert-danger' role='alert'>Please contact BizDev!</div>");
+                alert("Please contact BizDev!");
                 break;
             }
         }
